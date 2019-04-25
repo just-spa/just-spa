@@ -1,0 +1,11 @@
+{
+    "dependencies": {
+        "@tencent/spaui-autocomplete": "^0.1.42",
+        "@tencent/spaui-button": "^0.1.25",
+        "@tencent/spaui-checkbox": "^0.1.17",
+        "@tencent/spaui-datepicker": "^0.1.41",
+        "@tencent/spaui-input": "^0.1.34",
+        "@tencent/spaui-radio": "^0.1.33",
+        "@tencent/spaui-select": "^0.2.90"
+    }
+}

@@ -1,0 +1,88 @@
+{
+    "1": {
+        "name": "react-template",
+        "label": "react组件",
+        "owner": "system",
+        "stack": "react",
+        "description": "react组件模板。(纯react基础组件)"
+    },
+    "2": {
+        "name": "react-redux-template",
+        "label": "react-redux组件",
+        "owner": "system",
+        "stack": "react",
+        "description": "react-redux组件模板。(无redux-thunk支持)."
+    },
+    "3": {
+        "name": "react-redux-antd-mobile-template",
+        "label": "react-redux-antd-mobile组件",
+        "owner": "system",
+        "stack": "react",
+        "description": "react-redux ant-design mobile组件模板."
+    },
+    "4": {
+        "name": "react-redux-thunk-template",
+        "label": "react-redux-thunk组件",
+        "owner": "system",
+        "stack": "react",
+        "description": "react-redux-thunk组件模板。(已添加redux-thunk、redux-promise支持)."
+    },
+    "5": {
+        "name": "react-redux-template",
+        "label": "SPA-UI组件",
+        "owner": "system",
+        "stack": "react",
+        "description": "SPAUI组件模板。",
+        "options": [
+            {
+                "name": "react-redux-spaui-chart",
+                "label": "react-redux组件(图表)",
+                "owner": "system",
+                "stack": "react",
+                "description": "react-redux组件的图表模板。"
+            },
+            {
+                "name": "react-redux-spaui-table",
+                "label": "react-redux组件(表格)",
+                "owner": "system",
+                "stack": "react",
+                "description": "react-redux组件的表格模板。"
+            },
+            {
+                "name": "react-redux-spaui-form",
+                "label": "react-redux组件(表单)",
+                "owner": "system",
+                "stack": "react",
+                "description": "react-redux组件的表单模板。"
+            },
+            {
+                "name": "react-redux-spaui-top-nav",
+                "label": "react-redux组件(顶部导航栏)",
+                "owner": "system",
+                "stack": "react",
+                "description": "react-redux组件的顶部导航栏模板。"
+            },
+            {
+                "name": "react-redux-spaui-nav-menu",
+                "label": "react-redux组件(菜单导航栏)",
+                "owner": "system",
+                "stack": "react",
+                "description": "react-redux组件的菜单导航栏模板。"
+            }
+        ]
+    },
+    "6": {
+        "name": "vue-template",
+        "label": "vue 2组件",
+        "owner": "system",
+        "stack": "vue",
+        "description": "Vue组件模板。(纯Vue UI组件)"
+    },
+    "7": {
+        "name": "jquery-template",
+        "label": "jquery或原生组件",
+        "owner": "system",
+        "stack": "jquery",
+        "description": "jquery或原生组件。"
+    }
+}

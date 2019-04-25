@@ -1,0 +1,19 @@
+{
+    "statics": [
+        "data/index.js",
+        "data/asyncData.json"
+    ],
+    "templates": [
+        "README.md",
+        "test/test.js",
+        "src/events.js",
+        "src/index.jsx",
+        "src/data-adapter.js",
+        "index.jsx",
+        "src/index.less"
+    ],
+    "templateData": {
+        "_Component": "name",
+        "_component": "lineThroughName"
+    }
+}

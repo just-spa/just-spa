@@ -1,0 +1,5 @@
+{
+    "dependencies": {
+        "@tencent/spaui-chart": "^0.1.13"
+    }
+}

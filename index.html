@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <title>开发调试</title>
+    <link rel="shortcut icon" href="/src/web/favicon.ico" type="image/x-icon"/>
+	<meta name="keywords" content="组件开发">
+	<meta name="description" content="组件开发">
+    <meta name="copyright" content="just do.">
+    <link rel="stylesheet" href="./src/web/css/bootstrap/bootstrap.latest.css">
+    <link rel="stylesheet" href="./src/web/css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./src/web/css/common.css">
+    <link rel="stylesheet" href="./src/web/css/markdown.css">
+    <link rel="stylesheet" href="./src/web/css/markdown-addons.css">
+    <link rel="stylesheet" href="./src/web/css/alert-box.css">
+
+    <link rel="stylesheet" href="./src/web/css/index.css">
+</head>
+
+<body>
+    <header id="header" class="section-header">
+        <nav class="nav">
+            <h4><a href="/"><img src="./src/web/img/logo.png">-SPA 前端组件工程化平台</a></h4>
+        </nav>
+    </header>
+
+    <main id="root" class="section-main"></main>
+
+    <!-- markdown编辑器 -->
+    <div id="markdownEditor" class="mark-editor">
+        <div id='bar'>
+            <div id="toolbar">
+                <i class="fa fa-save" title="保存" onclick="saveReadme()"></i>
+                <i class="fa fa-bold" id="bold" title="加粗" onclick="insertText('**这里填写要加粗的文字**')"></i>
+                <i class="fa fa-italic" id="italic" title="斜体" onclick="insertText('_这里填写要斜体的文字_')"></i>
+                <i class="fa fa-chain" id="hyperlink" title="链接" onclick="insertText('[这里写连接的描述](这里填写连接地址)')"></i>
+                <i class="fa fa-file-text" id="code" title="代码" onclick="insertText('```\n这里插入代码\n```')"></i>
+                <i src="fa fa-image-o" id="image" title="上传图片" onclick="showDialog()"></i>
+                <i class="fa fa-expand" title="切换编辑/预览" onclick="toggleEditorWidth()"></i>
+            </div>
+        </div>
+        <div id='container'>
+            <div id='editor-column' class='pull-left'>
+                <div id='panel-editor' style="height: 100%;">
+                    <!--编辑区-->
+                    <div class="editor-content" id="mdeditor" style="height: 100%;"></div>
+                </div>
+            </div>
+            <div id='preview-column' class='pull-right'>
+                <div id='panel-preview'>
+                    <!--显示区-->
+                    <div id="preview" class="markdown-body"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- markdown编辑器结束 -->
+
+    <footer id="footer" class="section-footer">
+        <section class="footer-attach">推荐链接</section>
+    </footer>
+
+    <script src="./.build/component-info.js"></script>
+    <script src="./.build/webapp-info.js"></script>
+    <script src="./src/web/js/libs/react.16.4.min.js"></script>
+    <script src="./src/web/js/libs/react-dom.16.4.min.js"></script>
+    <script src="./src/web/js/libs/react-bootstrap.js"></script>
+    <script src="./src/web/js/libs/browser-5.8.23.min.js"></script>
+
+    
+    <script src="./src/web/js/libs/jquery-1.9.0.min.js"></script>
+    <script src="./src/web/js/libs/utils.js"></script>
+    <script src="./src/web/js/libs/ace/ace.js"></script>
+    <script src="./src/web/js/libs/marked.min.js"></script>
+    <script src="./src/web/js/libs/axios.min.js"></script>
+    <script src="./src/web/js/alert-box.js"></script>
+    
+    <script type="text/babel" src="./src/web/js/index.js"></script>
+
+    <!-- readme 编辑器内容样式 -->
+    <script src="./src/web/js/libs/ace-addons/showPanel.js"></script>
+</body>
+</html>

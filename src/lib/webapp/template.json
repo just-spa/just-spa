@@ -1,0 +1,44 @@
+{
+    "1": {
+        "name": "react-redux-spa-template",
+        "label": "react-redux-spa项目",
+        "owner": "system",
+        "stack": "react",
+        "description": "react复杂单页应用项目模板，带redux。(推荐)"
+    },
+    "2": {
+        "name": "react-spa-template",
+        "label": "react-spa项目",
+        "owner": "system",
+        "stack": "react",
+        "description": "react简单单页应用项目模板，无redux。(推荐)"
+    },
+    "3": {
+        "name": "pwa-react-redux-spa-template",
+        "label": "(PWA) react-redux-spa项目",
+        "owner": "system",
+        "stack": "react",
+        "description": "支持PWA的react复杂单页应用项目模板，带redux。(推荐)"
+    },
+    "4": {
+        "name": "pwa-react-spa-template",
+        "label": "(PWA) react-spa项目",
+        "owner": "system",
+        "stack": "react",
+        "description": "支持PWA的react简单单页应用项目模板，无redux。(推荐)"
+    },
+    "5": {
+        "name": "vue-template",
+        "label": "vue项目",
+        "owner": "system",
+        "stack": "vue",
+        "description": "vue简单单页应用项目模板。"
+    },
+    "6": {
+        "name": "react-redux-spaui-template",
+        "label": "react-redux-spaui项目",
+        "owner": "system",
+        "stack": "react",
+        "description": "react复杂单页应用项目模板，使用SPAUI, 带redux。(推荐)"
+    }
+}

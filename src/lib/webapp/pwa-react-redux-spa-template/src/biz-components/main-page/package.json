@@ -1,0 +1,15 @@
+{
+    "name": "main-page",
+    "version": "1.0.0",
+    "template": "react-redux-template",
+    "preview-image": "",
+    "main": "index",
+    "stack": "react",
+    "scripts": {
+        "test": "",
+        "start": ""
+    },
+    "author": "",
+    "description": "",
+    "license": "ISC"
+}

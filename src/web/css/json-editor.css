@@ -1,0 +1,21 @@
+
+#jsonEditor{
+    font-size: 14px;
+    font-weight: normal;
+    width: 98%;
+    font-family: "Microsoft Yahei";
+}
+
+#jsonEditor .row{
+    margin: 0;
+}
+
+#jsonEditor .json-editor-btn-edit , #jsonEditor .json-editor-btn-collapse {
+    font-size: 14px;
+    padding: 5px;
+}
+
+#jsonEditor .json-editor-btn-save, #jsonEditor .json-editor-btn-cancel {
+    font-size: 14px;
+    margin: 5px;
+}

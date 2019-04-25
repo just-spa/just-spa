@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- set `maximum-scale` for some compatibility issues -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <title>开发调试</title>
+    <link rel="shortcut icon" href="/src/web/favicon.ico" type="image/x-icon"/>
+    <meta name="keywords" content="组件开发">
+    <meta name="description" content="组件开发">
+    <meta name="copyright" content="just do.">
+</head>
+
+<body>
+    <div id="template"></div>
+    <div id="root"></div>
+    
+    <script src="./js/libs/fastclick.js"></script>
+    <script src="./js/libs/jquery.min.js"></script>
+    <script src="./js/libs/mockjs.min.js"></script>
+    <script src="./js/libs/utils.js"></script>
+
+    <script src="/static/common.js"></script>
+    <script>
+    var packageName = Utils.getUrlParams('c');
+    var componentName = Utils.getComponentName(packageName);
+    
+    function appendScript(path) {
+        var script = document.createElement('script');
+        script.src = path;
+        document.body.appendChild(script);
+    }
+
+    if (componentName) {
+        appendScript('/static/' + componentName + '.js');
+    }
+
+    function dispatchData (store, data) {
+        store.dispatch({
+            type: 'changeText',
+            data: data
+        })
+    }
+
+    </script>
+</body>
+</html>

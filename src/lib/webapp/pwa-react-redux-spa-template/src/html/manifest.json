@@ -1,0 +1,9 @@
+{
+    "name": "pwa应用",
+    "short_name": "pwa",
+    "display": "standalone",
+    "start_url": "/www/index.html#main-page",
+    "theme_color": "#313131",
+    "background_color": "#313131",
+    "icons": []
+}

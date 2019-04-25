@@ -1,0 +1,15 @@
+{
+    "name": "limit-select",
+    "version": "1.0.0",
+    "template": "vue-template",
+    "preview-image": "",
+    "main": "index",
+    "stack": "vue",
+    "scripts": {
+        "test": "",
+        "start": ""
+    },
+    "author": "",
+    "description": "",
+    "license": "ISC"
+}

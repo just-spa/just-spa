@@ -1,0 +1,5 @@
+{
+    "dependencies": {
+        "@tencent/spaui-menu": "^0.1.35"
+    }
+}

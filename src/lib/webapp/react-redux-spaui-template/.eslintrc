@@ -1,0 +1,9 @@
+{
+    "extends": [
+        "@tencent/eslint-config-spa"
+    ],
+    "globals": {
+        "expect": true,
+        "it": true
+    }
+}

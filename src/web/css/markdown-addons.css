@@ -1,0 +1,160 @@
+.mark-editor {
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    border: solid 1px #ddd;
+}
+
+.mark-editor #bar {
+    display: block;
+    width: 100%;
+}
+
+.mark-editor #bar #topbar {
+    height: 40px;
+    background-color: #444;
+    width: 100%;
+    line-height: 50px;
+}
+
+.mark-editor #bar #toolbar {
+    height: 40px;
+    line-height: 40px;
+    width: 100%;
+    background-color: #ddd;
+}
+
+.mark-editor #container {
+    overflow: auto;
+    width: 100%;
+    height: 768px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 130px;
+}
+
+.mark-editor #editor-column,
+#preview-column {
+    width: 50%;
+    height: 100%;
+    overflow: auto;
+    position: relative;
+    background-color: #F6F6F6;
+}
+
+.mark-editor #preview-column {
+    padding: 20px;
+}
+
+.mark-editor .pull-left {
+    float: left;
+}
+
+.mark-editor .mark-editor .pull-right {
+    float: right;
+}
+
+.mark-editor #toolbar {
+    text-align: right;
+    padding-right: 20px;
+    user-select: none;
+}
+
+.mark-editor #toolbar i {
+    color: #444;
+    font-size: 18px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.mark-editor #toolbar i:hover {
+    font-weight: bold;
+    color: #333;
+}
+
+.mark-editor #toolbar img:hover {
+    background: #EBEBEB;
+    cursor: pointer;
+}
+
+.mark-editor #dialog {
+    position: fixed;
+    height: 400px;
+    width: 550px;
+    background: #FFFFFF;
+    z-index: 5;
+    left: 30%;
+    border: 1px solid gray;
+    top: 25%;
+    display: none;
+}
+
+.mark-editor #showImg {
+    height: 160px;
+    width: 160px;
+    position: absolute;
+    border: 0.5px solid gainsboro;
+    bottom: 80px;
+    left: 35%;
+}
+
+.mark-editor #cancel {
+    border: 0px none #FFECEC;
+    background: #999999;
+    color: #FFFFFF;
+    padding: 5px 15px;
+    position: absolute;
+    top: 8px;
+    right: 100px;
+}
+
+.mark-editor #cancel:hover {
+    background: #AAAAAA;
+}
+
+.mark-editor #insert {
+    border: 0px none #FFECEC;
+    background: #BE1A21;
+    color: #FFFFFF;
+    padding: 5px 15px;
+    position: absolute;
+    top: 8px;
+    right: 30px;
+}
+
+.mark-editor #insert:hover {
+    background: #CB474D;
+}
+
+.mark-editor #upload {
+    border: 0px none #FFECEC;
+    background: #999999;
+    color: #FFFFFF;
+    padding: 7px 30px;
+    position: absolute;
+    top: 67px;
+    right: 40px;
+}
+
+.mark-editor #upload:hover {
+    background: #AAAAAA;
+}
+
+.mark-editor #filediv {
+    width: 70%;
+    height: 30px;
+    top: 70px;
+    left: 20px;
+    position: absolute;
+}
+
+.mark-editor #file {
+    width: 95%;
+    height: 30px;
+    position: relative;
+    top: -27px;
+    opacity: 0.000001;
+    cursor: pointer;
+}

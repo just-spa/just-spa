@@ -1,0 +1,107 @@
+
+
+.section-main .types-list{
+    margin: 20px 10px;
+}
+
+.section-main .types-list span{
+    margin: 5px;
+    display: inline-block;
+    font-size: 14px;
+    padding: 5px 10px;
+}
+
+.section-main .types-list span:hover, .section-main .types-list span.active {
+    background-color: #035f94;
+    cursor: pointer;
+}
+
+.section-main .component-info {
+    position: relative;
+    float: left;
+    margin: 10px;
+    width: 264px;
+    border: solid 1px #035f94;
+    list-style-type: none;
+    padding: 10px;
+}
+
+.section-main .component-logo {
+    position: absolute;
+    width: 50px;
+    height: 45px;
+    bottom: 0;
+    right: 0;
+    border-top-left-radius: 50%;
+}
+
+.section-main .empty-list {
+    padding-left: 15px;
+}
+
+.section-main .component-info:hover {
+    box-shadow: 0 0 10px #035f94;
+}
+
+.section-main .component-info li {
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+
+.section-main .component-info li .preview{
+    display: inline-block;
+    width: 100%;
+    height: 152px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+.section-main .component-info img {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.section-main .component-info .component-name{
+    font-weight: bold;
+    margin-right: 5px;
+    height: 40px;
+    white-space: normal;
+    word-break: break-all;
+}
+
+.section-main .component-info img:hover {
+    cursor: pointer;
+}
+
+.mark-editor #editor-column{
+    display: none;
+}
+
+.mark-editor #preview-column {
+    width: 100%;
+}
+
+.mark-editor #container{
+    height: auto;
+    min-height: 400px;
+    background-color: #F6F6F6;
+}
+.mark-editor #bar{
+    display: none;
+}
+
+
+/* 搜索框内容过滤 */
+.section-main .search{
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.section-main .search .fa-search{
+    position: absolute;
+    right: 22px;
+    top: 6px;
+    font-size: 20px;
+}

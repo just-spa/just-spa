@@ -1,0 +1,11 @@
+{
+    "NPM": "npm",
+    "SOCKET_URL": "tcp://127.0.0.1:6677",
+    "BUILD_PATH": "/.build",
+    "STACK_MAP": {
+        "1": "react",
+        "2": "vue",
+        "3": "angular",
+        "4": "jquery或其它"
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "statics": [
+        ".editorconfig",
+        ".eslintrc",
+        ".gitignore",
+        ".npmignore",
+        "data/index.js"
+    ],
+    "templates": [
+        "README.md",
+        "test/test.js",
+        "src/index.js",
+        "src/index.less"
+    ],
+    "templateData": {
+        "_Component": "name",
+        "_component": "lineThroughName"
+    }
+}

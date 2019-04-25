@@ -1,0 +1,21 @@
+{
+    "extends": [
+    ],
+    "parserOptions": {
+    },
+    "parser": "babel-eslint",
+    "plugins": [
+        "react"
+    ],
+    "globals": {
+        "jsRoutes": true,
+        "$": true
+    },
+    "rules": {
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "no-alert": "warn",
+        "react/jsx-uses-react": "error",
+        "react/jsx-uses-vars": "error",
+        "react/jsx-no-undef": "error"
+    }
+}
