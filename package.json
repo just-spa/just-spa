@@ -1,6 +1,6 @@
 {
     "name": "just-spa",
-    "version": "1.1.45",
+    "version": "1.1.46",
     "description": "Just是一套前端工程化工具，用户对物料库进行处理，快速进行组件的创建、开发、调试、打包构建。从而提高组件开发效率，统一组件规范，分离组件功能并减少人员变动给项目维护带来的额外成本",
     "main": "index.js",
     "scripts": {
@@ -19,6 +19,8 @@
         "babel-core": "^6.0.20",
         "babel-eslint": "^4.1.3",
         "babel-loader": "^7.1.5",
+        "babel-plugin-istanbul": "^5.1.3",
+        "babel-plugin-transform-runtime": "^6.23.0",
         "babel-preset-es2015": "^6.0.15",
         "babel-preset-react": "^6.0.15",
         "babel-preset-stage-0": "^6.0.15",

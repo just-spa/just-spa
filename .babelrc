@@ -1,7 +1,34 @@
 {
-  "presets": ["es2015", "stage-0", "react"],
-  "plugins": [
-    "react-hot-loader/babel"
-    // ¿ªÆô React ´úÂëµÄÄ£¿éÈÈÌæ»»(HMR)
-  ]
+  "env": {
+    "dev": {
+      "presets": [
+        "es2015",
+        "stage-0",
+        "react"
+      ],
+      "plugins": [
+        "react-hot-loader/babel"
+        // ï¿½ï¿½ï¿½ï¿½ React ï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½æ»»(HMR)
+      ]
+    },
+    "test": {
+      "presets": [
+        "es2015",
+        "stage-0",
+        "react"
+      ],
+      "plugins": [
+        "transform-runtime",
+        [
+          "istanbul",
+          {
+            "exclude": [
+              "**/test/*.js"
+            ]
+          }
+        ]
+      ],
+      "comments": false
+    }
+  }
 }

@@ -4,7 +4,8 @@ const minimist = require('minimist');
 const argvs = minimist(process.argv.slice(2));
 
 const webpackConfig = getWebpackConfig({
-    port: 8000
+    port: 8000,
+    env: 'test'
 });
 
 const testList = [];

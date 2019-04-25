@@ -7,3 +7,4 @@ components/**
 **/dev
 **/pkg
 **/build
+coverage/**

@@ -38,6 +38,11 @@ for(let key in webpackConfigAlias) {
     }
 }
 
+// 设置 babel 环境
+const setBabelEnv = (env = 'dev') => {
+    process.env.BABEL_ENV = env;
+};
+
 // 获取页面的每个入口文件，用于配置中的entry
 function getEntry(options) {
     const jsPath = jsDir;
@@ -69,6 +74,8 @@ function getEntry(options) {
 }
 
 module.exports = function getConfig(options) {
+    setBabelEnv(options.env);
+
     return {
     //   devtool: 'eval',
     entry: getEntry(options),
@@ -102,9 +109,10 @@ module.exports = function getConfig(options) {
             test: /\.jsx?$/,
             include: [path.join(__dirname, configs.buidDir)],
             //exclude: /node_modules/,
-            use: [{
-                loader: 'babel-loader?-babelrc,+cacheDirectory,presets[]=es2015,presets[]=stage-0,presets[]=react'
-            }]
+            loader: `babel-loader${options.env === 'dev' ? '?cacheDirectory' : ''}`
+            // use: [{
+            //     loader: 'babel-loader?-babelrc,+cacheDirectory,presets[]=es2015,presets[]=stage-0,presets[]=react'
+            // }]
         }, {
             test: /\.(less|css)$/,
             use: ['style-loader', 'css-loader?javascriptEnabled=true', 'less-loader?javascriptEnabled=true']
