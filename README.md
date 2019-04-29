@@ -90,4 +90,4 @@ just -v/version: 显示当前安装的just版本。
 just set: 设置npm、tnpm或tnpm，例如：just set tnpm。
 ```
 
-&emsp;&emsp;具体功能用法可以查看./src/docs目录或工具界面右上角或者[详细文档](https://github.com/ouvens/just-spa/blob/master/src/docs/docs.md)。
+&emsp;&emsp;具体功能用法可以查看./src/docs目录或工具界面右上角或者[详细文档](https://github.com/just-spa/just-spa/blob/master/src/docs/docs.md)。
