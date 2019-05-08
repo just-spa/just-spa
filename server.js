@@ -144,32 +144,57 @@ const webpackDevServer = new WebpackDevServer(webpack(config), {
             let testCommand = '';
 
             if (isWinPlatform()) {
-                testCommand = `node ./node_modules/karma/bin/karma start --file="./.build/${componentName}/test/${req.query.testFile}.js"`
+                testCommand = `node ./node_modules/karma/bin/karma start --singleRun=true --file="./.build/${componentName}/test/${req.query.testFile}.js"`
                 // testCommand = `.\\node_modules\\.bin\\mocha --compilers js:babel-core/register --no-deprecation .\\.build\\${componentName}\\test\\${req.query.testFile}`;
             } else {
-                testCommand = `node ./node_modules/karma/bin/karma start --file="./.build/${componentName}/test/${req.query.testFile}.js"`
+                testCommand = `node ./node_modules/karma/bin/karma start --singleRun=true --file="./.build/${componentName}/test/${req.query.testFile}.js"`
                 // testCommand = `./node_modules/.bin/mocha --compilers js:babel-core/register --no-deprecation ./.build/${componentName}/test/${req.query.testFile}`;
             }
 
-            childProcess.exec(testCommand, (error, stdout, stderr) => {
+            const testShell = childProcess.spawn(testCommand, [], {shell: true});
+            let outputString = '';
+            
 
-                logger(`childProcess.exec error: ${stdout}`, 'magenta');
-                // 目前根据测试结果的标识判断是否测试通过
-                if (stdout.indexOf('Error') > -1) {
-                    logger(`childProcess.exec error: ${error}`, 'magenta');
-                    res.json({ success: false, result: stdout });
-                } else if (stdout.indexOf('passing') > -1) {
-                    res.json({ success: true, result: stdout });
-                } else {
-                    if (error) {
-                        logger(`childProcess.exec error: ${error}`, 'magenta');
-                        res.json({ success: false, result: JSON.stringify(error) });
-                        return;
-                    }
-                    res.json({ success: true, result: `${testCommand} \n ${stdout}` });
-
-                }
+            testShell.stdout.on('data', (data) => {
+                outputString += data.toString();
+                fse.outputFile('coverage/test.log', outputString);
             });
+
+            testShell.stderr.on('data', (data) => {
+                outputString += data.toString();
+                outputString += 'JUST_ERROR';
+                fse.outputFile('coverage/test.log', outputString);
+            });
+
+            testShell.on('exit', (code) => {
+                outputString += `--JUST_END-- ${code}`;
+                fse.outputFile('coverage/test.log', outputString);
+                testShell.kill();
+            });
+
+            // 如果不存在目录，则创建目录
+            if (!fse.pathExistsSync('coverage/')) {
+                fse.mkdirpSync('coverage/')
+            }
+            fse.outputFile('coverage/test.log', '', function() {
+                res.json({
+                    success: 'loading'
+                })
+            })
+        });
+
+        app.get('/test/log', function(req, res) {
+            const result = fse.readFileSync('coverage/test.log', 'utf-8')
+            let success = 'loading';
+            if (/JUST_ERROR/.test(result) || /AssertionError/.test(result)){
+                success = false
+            } else if (/JUST_END/.test(result)) {
+                success = true
+            }
+            res.json({
+                success: success,
+                result: result
+            })
         });
 
         // ESLint某些目录

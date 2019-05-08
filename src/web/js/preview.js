@@ -12,6 +12,7 @@ const stack = Utils.getUrlParams('stack') || 'react';
 const component = _getComponent(componentInfo.components);
 
 let jsonEditor;
+let interval;
 
 class Preview extends React.Component {
 
@@ -81,7 +82,6 @@ class Preview extends React.Component {
         apis = apis.join('\n');
 
         let dependencies = [];
-        let isRedux = this._isRedux();
 
         const componentUrl = isMobile ? `./${stack}-mobile.html?c=${packageName}` : `./${stack}.html?c=${packageName}`;
 
@@ -137,43 +137,6 @@ class Preview extends React.Component {
                                 component.git ? <li>仓库url： <a href={component.git || ''} target="_blank">{component.git || ''}</a></li> : null
                             }
                         </ul>
-
-                        {isRedux ? <div className="component-debugger-panel">
-                            <Form>
-                                <FormGroup controlId="formControlsTextarea">
-                                    <div><ControlLabel>线上接口地址</ControlLabel></div>
-
-                                    <FormControl componentClass="textarea" value={api} onChange={(e) => {
-                                        this._changeHandle(e, 'api')
-                                    }} placeholder="请输入要请求的接口地址，例如:http://xx.com/api/v1/get" rows="4" />
-                                    <Button type="button" onClick={this._saveApi.bind(this)}>保存线上接口数据</Button>
-
-                                    <div><ControlLabel>actionType(redux的actionType)</ControlLabel></div>
-                                    <FormControl type="text" value={actionType} onChange={(e) => {
-                                        this._changeHandle(e, 'actionType')
-                                    }} placeholder="请输入acticonType" />
-
-                                    <div><ControlLabel>storeKey(store上挂载的key)</ControlLabel></div>
-                                    <FormControl type="text" value={storeKey} onChange={(e) => {
-                                        this._changeHandle(e, 'storeKey')
-                                    }} placeholder="请输入storeKey" />
-
-                                    <div><ControlLabel>JSON数据(dispatch到store的数据)</ControlLabel></div>
-                                    <FormControl value={jsonData} componentClass="textarea" onChange={(e) => {
-                                        this._changeHandle(e, 'jsonData')
-                                    }} placeholder="例如:{text: 'hello world'}" rows="4" />
-                                    <Button type="button" bsStyle="primary" onClick={this._dispatchJSON.bind(this)}>获取JSON dispatch</Button>
-
-                                    <div><ControlLabel>mockDataPath(本地mock数据路径)</ControlLabel></div>
-                                    <FormControl value={mockDataPath} componentClass="textarea" onChange={(e) => {
-                                        this._changeHandle(e, 'mockDataPath')
-                                    }} placeholder="例如: E:\mock\data.json" rows="3" />
-                                    <Button type="button" bsStyle="primary" onClick={this._dispatchApi.bind(this)}>请求接口dispatch</Button>
-                                </FormGroup>
-                            </Form>
-                            <div><ControlLabel>已添加接口数据</ControlLabel></div>
-                            <FormControl componentClass="textarea" value={apis} placeholder="" rows="6" />
-                        </div> : null}
 
                     </section>
                     <section class="right-content">
@@ -679,14 +642,16 @@ Mock.mock(new RegExp('${key}', 'ig'), ${mockDataVar});
      * @memberof Preview
      */
     _triggerUnitTest() {
-        let { testFile } = this.state;
+        let { testFile, unitTestResult } = this.state;
 
+        if (interval) {
+            return;
+        }
         this.setState({
             unitTestResult: {
                 success: 'loading'
             }
         });
-
         // 读取固定的api
         axios.get('/test', {
             params: {
@@ -694,11 +659,25 @@ Mock.mock(new RegExp('${key}', 'ig'), ${mockDataVar});
                 testFile: testFile || 'test.js'
             }
         }).then(res => {
-            let resultText = res.data;
-            resultText.result = resultText.result.replace(/(\[\d\d?m)|(\[\d\d?m)/ig, ' ');
-            this.setState({
-                unitTestResult: resultText
-            });
+
+            // 读取固定的api
+            interval = setInterval(() => {
+                axios.get('/test/log', {}).then(testRes => {
+
+                    let resData = testRes.data;
+                    resData.result = resData.result && resData.result.replace(/(\[\d\d?m)|(\[\d\d?m)/ig, ' ');
+                    this.setState({
+                        unitTestResult: resData
+                    });
+                    if (resData.success === true || resData.success === false) {
+                        clearInterval(interval);
+                        interval = null;
+                    }
+                }).catch(err => {
+                    clearInterval(interval);
+                    interval = null;
+                });
+            }, 2000)
         }).catch(err => {
             console.log(err);
         });
@@ -828,105 +807,6 @@ Mock.mock(new RegExp('${key}', 'ig'), ${mockDataVar});
                 mockData: '{}'
             });
         }
-    }
-
-    /**
-     * 保存api
-     * 
-     * @memberof Preview
-     */
-    _saveApi() {
-        let { api, apis } = this.state;
-        if (!api) {
-            Dialog.toast.warn({
-                content: '请填写接口地址'
-            });
-        } else {
-            apis.push(api);
-            this.setState({
-                apis: apis
-            })
-            window.open(api, '_blank');
-        }
-    }
-
-    /**
-     * 请求本地数据mock数据接口并注入到组件环境中
-     * 
-     * @returns 
-     * @memberof Preview
-     */
-    _dispatchApi() {
-        let { actionType, storeKey, mockDataPath } = this.state;
-
-        // 如果是redux组件则需要判断actionType并进行动态dispatch
-
-        if (!mockDataPath || !actionType) {
-            Dialog.toast.error({
-                content: 'mockDataPath或actionType不能为空。'
-            });
-            return;
-        }
-        // 读取固定的api
-        bizAxios({
-            url: '/api',
-            method: 'get',
-            params: {
-                mockUri: mockDataPath
-            }
-        }).then(res => {
-
-            // 如果是redux组件，则使用dispatch的参数，否则使用react组件的参数
-            previewContainer.window.dispatchData(actionType, res.data, storeKey);
-        }).catch(err => {
-            console.log(err);
-        });
-    }
-
-
-    /**
-     * 获取输入的json数据并注入到组件环境中
-     * 
-     * @returns 
-     * @memberof Preview
-     */
-    _dispatchJSON() {
-
-        let { actionType, storeKey, jsonData } = this.state;
-
-        // 如果是redux组件则需要判断actionType并进行动态dispatch
-        if (!jsonData) {
-            Dialog.toast.warn({
-                content: 'jsonData不能为空。'
-            });
-            return;
-        }
-
-        try {
-            // 如果有storeKey可以支持jsonData为其它类型
-            previewContainer.window.dispatchData(actionType || '', JSON.parse(jsonData), storeKey);
-        } catch (e) {
-            if (storeKey) {
-                previewContainer.window.dispatchData(actionType || '', {
-                    [storeKey]: jsonData
-                });
-            } else {
-                Dialog.toast.warn({
-                    content: '输入的json格式有误'
-                });
-            }
-        }
-
-    }
-
-    /**
-     * 是否是react-redux组件
-     * 
-     * @returns 
-     * @memberof Preview
-     */
-    _isRedux() {
-        return component && component.template && component.template.indexOf('redux') > -1;
     }
 };
 
