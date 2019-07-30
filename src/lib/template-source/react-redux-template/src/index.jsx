@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 
 import { dispatchChange, dispatchAsyncChange, dispatchPromiseChange } from './action';
 import { formatName } from './data-adapter';
+import IndexView from './views/index'
 
 class ${_Component} extends PureComponent {
 
     static propTypes = {
-        text: PropTypes.string,
         name: PropTypes.string
     }
 
@@ -31,19 +31,18 @@ class ${_Component} extends PureComponent {
 
         const formatNameData = formatName(this.props.name);
 
-        return <div className={className}>
-            <h2>react-redux模板组件：${_Component}</h2>
-            {this.props.text} {formatNameData}!
-            <button onClick={() => {
+        return <IndexView text={this.props.${_Component}.text}
+            name={formatNameData}
+            dispatchChange={() => {
                 dispatchChange.bind(this)('${_Component}');
-            }}>同步dispatch</button>
-            <button onClick={() => {
+            }}
+            dispatchAsyncChange={() => {
                 dispatchAsyncChange.bind(this)('${_Component}');
-            }}>异步dispatch</button>
-            <button onClick={() => {
+            }}
+            dispatchPromiseChange={() => {
                 dispatchPromiseChange.bind(this)('${_Component}');
-            }}>Promise dispatch</button>
-        </div>
+            }}
+        />
     }
 }
 
