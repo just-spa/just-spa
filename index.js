@@ -62,9 +62,8 @@ function _initCommandSet(serverPath, command, commandParams) {
                 commandExcute();
                 return;
             }
-            const latestVersionInfo = stdout.match(/[\t|\n|\r]((.?)+)[\t|\n|\r]$/) || stdout;
 
-            const latestVersion = (latestVersionInfo[1] || latestVersionInfo).replace(/\"/ig, '');
+            const latestVersion = stdout.replace(/\t|\n|\r|\"/ig, '');
 
             fse.readJson(`${serverPath}/package.json`).then((packageObj) => {
                 if (packageObj.version != latestVersion) {
