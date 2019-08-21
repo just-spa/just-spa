@@ -1,0 +1,20 @@
+{
+    "statics": [
+
+    ],
+    "templates": [
+        "index.js",
+        "src/mapToProps.js",
+        "src/service.js",
+        "src/state.js",
+        "src/view/index.js",
+        "test/test.js",
+        "mock/data.js"
+    ],
+    "templateData": {
+        "_Component": "name",
+        "_component": "lineThroughName",
+        "_author": "author"
+    },
+    "noPacakgeJson": "1"
+}

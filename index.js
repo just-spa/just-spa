@@ -45,7 +45,7 @@ function _initCommandSet(serverPath, command, commandParams) {
     let scriptCommand = `${npm} info just-spa version --json`;
 
     // 如果不是init则不需要拉取版本号对比
-    if (command !== 'init') {
+    if (command !== 'version' && command !== 'v') {
         commandExcute();
         return;
     }
@@ -407,10 +407,10 @@ function _readDependencies(componentName) {
     let packageJson = {};
 
     if(fse.pathExistsSync(componentDir + '/package.json')) {
-        packageJson = fse.readJsonSync(componentDir + '/package.json');
+        packageJson = fse.readJsonSync(componentDir + '/package.json') || {};
     }
 
-    for (let key in (packageJson.dependencies || {})) {
+    for (let key in (packageJson && packageJson.dependencies || {})) {
         if(dependencies.indexOf(key) < 0) {
             dependencies.push(key);
         }
@@ -424,14 +424,14 @@ function _readDependencies(componentName) {
  * 
  */
 function _readDirDependencies(currentPath) {
-
+    let packageJson = {};
     const componentDirs = _readDirSync(currentPath, true);
     let dependencies = [];
     let packageNames = [];  // 本地已存在被引用的包
     if (componentDirs.length) {
         for (let componentDir of componentDirs) {
             if(fse.pathExistsSync(componentDir + '/package.json')) {
-                packageJson = fse.readJsonSync(componentDir + '/package.json');
+                packageJson = fse.readJsonSync(componentDir + '/package.json') || {};
                 packageNames.push(packageJson.name);
             }
         }
@@ -441,7 +441,7 @@ function _readDirDependencies(currentPath) {
         packageJson = fse.readJsonSync(currentPath + '/package.json');
     }
 
-    for (let key in (packageJson.dependencies || {})) {
+    for (let key in (packageJson && packageJson.dependencies || {})) {
         if(dependencies.indexOf(key) < 0 && packageNames.indexOf(key) < 0) {
             dependencies.push(key);
         }
@@ -456,7 +456,7 @@ function _readDirDependencies(currentPath) {
                 packageJson = fse.readJsonSync(componentDir + '/package.json');
             }
 
-            for (let key in (packageJson.dependencies || {})) {
+            for (let key in (packageJson && packageJson.dependencies || {})) {
                 if(dependencies.indexOf(key) < 0 && packageNames.indexOf(key) < 0) {
                     dependencies.push(key);
                 }

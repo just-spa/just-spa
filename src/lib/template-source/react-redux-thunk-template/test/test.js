@@ -27,7 +27,7 @@ const context = {
 // component 测试
 describe('<${_Component} {...initProps}/> 组件测试', () => {
     it('should render ${_Component} success', () => {
-        const wrapper = shallow(<Provider store={store}>
+        const wrapper = mount(<Provider store={store}>
             <${_Component} store={store} />
         </Provider>, initProps);
     });

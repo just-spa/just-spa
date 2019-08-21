@@ -86,7 +86,9 @@ function _writeComponent(componentInfo, componentPath) {
         );
     }
 
-    _writePackageJson(componentPath + '/package.json', componentInfo);
+    if (!generatorJson.noPacakgeJson) {
+        _writePackageJson(componentPath + '/package.json', componentInfo);
+    }
 
     // 结束promise
     return Promise.all(filePromises).then(() => {
