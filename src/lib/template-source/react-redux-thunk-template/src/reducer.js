@@ -16,7 +16,7 @@ const generateReducer = (reduceName) => {
                 return state;
         }
     }
-}
+};
 
 /**
  * 批量生成reducer，模板内容，无需关注
@@ -38,7 +38,7 @@ export const generateReducers = (originName, number = 0) => {
         }
     }
     return reducers;
-}
+};
 
 // 导出namespace列表
 export const namespaces = _namespaces;

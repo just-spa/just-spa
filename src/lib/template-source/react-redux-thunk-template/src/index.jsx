@@ -62,7 +62,7 @@ class ${_Component} extends PureComponent {
         } = this.props
 
         const formatNameData = formatName(name);
-        const text = this.props[namespaceKey] && this.props[namespaceKey].text
+        const text = this.props[namespaceKey] && this.props[namespaceKey].text;
 
         return <IndexView text={text}
             className={className}
