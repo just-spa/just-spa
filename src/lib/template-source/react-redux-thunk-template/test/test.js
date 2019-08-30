@@ -6,7 +6,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import ${_Component} from '../src/index.jsx';
 import initProps from '../data/index';
 
-import reducer from '../src/reducer';
+import { reducer } from '../index';
 import { dispatchChange, dispatchAsyncChange, dispatchPromiseChange } from '../src/action';
 
 import { applyMiddleware, createStore, combineReducers } from 'redux';
@@ -24,6 +24,25 @@ const context = {
     }
 };
 
+// 设置封装的dispatch，不同组件修改actionType名称即可
+const getDispatch = (actionType = '${_Component}') => {
+    return (fn) => {
+        // 获取唯一的actionType
+        const namespaceActionType = `${actionType}`;
+        // 或者通过props传入获取
+        const _dispatch = store.dispatch;
+        // 新的处理函数
+        const newFn = function(dispatch, getState) {
+            const args = [...arguments];
+            args[2] = namespaceActionType;
+            return fn.apply(this, args);
+        }
+        return _dispatch.call(this, newFn);
+    }
+}
+
+const dispatch = getDispatch();
+
 // component 测试
 describe('<${_Component} {...initProps}/> 组件测试', () => {
     it('should render ${_Component} success', () => {
@@ -37,8 +56,8 @@ describe('<${_Component} {...initProps}/> 组件测试', () => {
 describe('<${_Component}> Action测试', () => {
 
     it('${_Component} Action dispatch success', () => {
-
-        let promise = dispatchChange.bind(context)('${_Component}');
+        
+        let promise = dispatch(dispatchChange());
 
         let changeStatus = (store.getState())['${_Component}'];
 
@@ -47,7 +66,7 @@ describe('<${_Component}> Action测试', () => {
 
     it('${_Component} Action asyncDispatch success', () => {
 
-        let promise = dispatchAsyncChange.bind(context)('${_Component}');
+        let promise = dispatch(dispatchAsyncChange());
 
         return promise.then(() => {
             let change = (store.getState())['${_Component}'];
@@ -58,7 +77,7 @@ describe('<${_Component}> Action测试', () => {
 
     it('${_Component} Action PromiseDispatch success', () => {
 
-        let promise = dispatchAsyncChange.bind(context)('${_Component}');
+        let promise = dispatch(dispatchPromiseChange());
 
         return promise.then(() => {
             let change = (store.getState())['${_Component}'];

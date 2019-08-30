@@ -14,25 +14,25 @@
         "description": "基于react-redux组件的轻量级bgm封装模板。(暂不支持Just运行)."
     },
     "3": {
+        "name": "react-redux-thunk-template",
+        "label": "react-redux-thunk组件",
+        "owner": "system",
+        "stack": "react",
+        "description": "react-redux-thunk组件模板。(已添加redux-thunk、redux-promise支持)."
+    },
+    "4": {
         "name": "react-redux-template",
         "label": "react-redux组件",
         "owner": "system",
         "stack": "react",
         "description": "react-redux组件模板。(无redux-thunk支持)."
     },
-    "4": {
+    "5": {
         "name": "react-redux-antd-mobile-template",
         "label": "react-redux-antd-mobile组件",
         "owner": "system",
         "stack": "react",
         "description": "react-redux ant-design mobile组件模板."
-    },
-    "5": {
-        "name": "react-redux-thunk-template",
-        "label": "react-redux-thunk组件",
-        "owner": "system",
-        "stack": "react",
-        "description": "react-redux-thunk组件模板。(已添加redux-thunk、redux-promise支持)."
     },
     "6": {
         "name": "react-redux-template",

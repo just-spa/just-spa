@@ -17,7 +17,9 @@ import {AppContainer} from 'react-hot-loader';
 
 // 引入组件
 import Component from './${componentName}/entry';
-import reducer from './${componentName}/src/reducer';
+import {
+    reducer,
+} from './${componentName}/index';
 
 import './${componentName}/style';
 
