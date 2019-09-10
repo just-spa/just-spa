@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import { dispatchChange, dispatchAsyncChange, dispatchPromiseChange } from './action';
 import { formatName } from './data-adapter';
-import IndexView from './views/index'
+import IndexView from './views/index';
 
 class ${_Component} extends PureComponent {
 

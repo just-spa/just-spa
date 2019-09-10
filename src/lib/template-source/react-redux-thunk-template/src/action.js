@@ -12,7 +12,7 @@ export const getDispatch = (actionType, dispatch) => {
         }
         return dispatch.call(this, newFn);
     }
-};
+}
 
 // 同步dispatch操作
 export const dispatchChange = () => (dispatch, getState, actionType) => {
@@ -22,7 +22,7 @@ export const dispatchChange = () => (dispatch, getState, actionType) => {
             text: 'change'
         }
     });
-};
+}
 
 // 异步dispatch操作
 export const dispatchAsyncChange = () => (dispatch, getState, actionType) => {
@@ -45,7 +45,7 @@ export const dispatchAsyncChange = () => (dispatch, getState, actionType) => {
             }
         });
     });
-};
+}
 
 // 异步返回promise操作
 export const dispatchPromiseChange = () => (dispatch, getState, actionType) => {
@@ -68,5 +68,5 @@ export const dispatchPromiseChange = () => (dispatch, getState, actionType) => {
             }
         });
     });
-};
+}
 
