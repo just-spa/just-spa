@@ -1,5 +1,19 @@
 import axios from 'axios';
 
+
+// dispatch封装，模板固定内容，无需修改
+export const getDispatch = (actionType, dispatch) => {
+    return (fn) => {
+        // 新的处理函数
+        const newFn = function(dispatch, getState) {
+            const args = [...arguments];
+            args[2] = actionType;
+            return fn.apply(this, args);
+        }
+        return dispatch.call(this, newFn);
+    }
+};
+
 // 同步dispatch操作
 export const dispatchChange = () => (dispatch, getState, actionType) => {
     dispatch({

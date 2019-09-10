@@ -7,7 +7,7 @@ import ${_Component} from '../src/index.jsx';
 import initProps from '../data/index';
 
 import { reducer } from '../index';
-import { dispatchChange, dispatchAsyncChange, dispatchPromiseChange } from '../src/action';
+import { getDispatch, dispatchChange, dispatchAsyncChange, dispatchPromiseChange } from '../src/action';
 
 import { applyMiddleware, createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
@@ -24,30 +24,13 @@ const context = {
     }
 };
 
-// 设置封装的dispatch，不同组件修改actionType名称即可
-const getDispatch = (actionType = '${_Component}') => {
-    return (fn) => {
-        // 获取唯一的actionType
-        const namespaceActionType = `${actionType}`;
-        // 或者通过props传入获取
-        const _dispatch = store.dispatch;
-        // 新的处理函数
-        const newFn = function(dispatch, getState) {
-            const args = [...arguments];
-            args[2] = namespaceActionType;
-            return fn.apply(this, args);
-        }
-        return _dispatch.call(this, newFn);
-    }
-}
-
-const dispatch = getDispatch();
+const dispatch = getDispatch('${_Component}', store.dispatch);
 
 // component 测试
 describe('<${_Component} {...initProps}/> 组件测试', () => {
     it('should render ${_Component} success', () => {
         const wrapper = mount(<Provider store={store}>
-            <${_Component} store={store} />
+            <${_Component} store={store} dispatch={store.dispatch}/>
         </Provider>, initProps);
     });
 });

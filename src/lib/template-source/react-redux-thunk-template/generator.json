@@ -12,7 +12,8 @@
         "index.jsx",
         "src/index.jsx",
         "data/index.js",
-        "src/index.less"
+        "src/index.less",
+        "src/service.js"
     ],
     "templateData": {
         "_Component": "name",
