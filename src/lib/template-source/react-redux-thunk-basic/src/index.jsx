@@ -2,7 +2,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import { getDispatch, dispatchChange, dispatchAsyncChange, dispatchPromiseChange } from './action';
+import { dispatchChange, dispatchAsyncChange, dispatchPromiseChange } from './action';
 import { formatName } from './data-adapter';
 import IndexView from './views/index';
 
@@ -15,9 +15,6 @@ class ${_Component} extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {};
-
-        // 模板固定内容，可用于多个复用场景，无需关注
-        this.dispatch = getDispatch(props.namespace || '${_Component}', props.dispatch);
     }
 
     componentWillMount() {
@@ -31,6 +28,7 @@ class ${_Component} extends PureComponent {
             namespace = '${_Component}',
             [namespace]: props = {},
             name,
+            dispatch,
         } = this.props;
 
         const formatNameData = formatName(name);
@@ -41,13 +39,13 @@ class ${_Component} extends PureComponent {
             name={formatNameData}
             title={componentTitle}
             dispatchChange={() => {
-                this.dispatch(dispatchChange());
+                dispatch(dispatchChange());
             }}
             dispatchAsyncChange={() => {
-                this.dispatch(dispatchAsyncChange());
+                dispatch(dispatchAsyncChange());
             }}
             dispatchPromiseChange={() => {
-                this.dispatch(dispatchPromiseChange());
+                dispatch(dispatchPromiseChange());
             }}
         />
     }

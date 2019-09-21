@@ -7,34 +7,50 @@
         "description": "react组件模板。(纯react基础组件)"
     },
     "2": {
-        "name": "react-bgm-flux",
-        "label": "react-bgm-flux组件",
+        "name": "react-redux-thunk-template",
+        "label": "react-redux-thunk模板(推荐)",
         "owner": "system",
         "stack": "react",
-        "description": "基于react-redux组件的轻量级bgm封装模板。(暂不支持Just运行)."
+        "description": "项目React-redux组件模板",
+        "options": [
+            {
+                "name": "react-bgm-flux",
+                "label": "react-bgm-flux组件",
+                "owner": "system",
+                "stack": "react",
+                "description": "基于react-redux组件的轻量级bgm封装模板。(暂不支持Just运行)."
+            },
+            {
+                "name": "react-redux-thunk-basic",
+                "label": "react-redux-thunk组件(经典型模板)",
+                "owner": "system",
+                "stack": "react",
+                "description": "react-redux-thunk组件模板。(已添加redux-thunk支持)."
+            },
+            {
+                "name": "react-redux-thunk-template",
+                "label": "react-redux-thunk组件(复用型模板)",
+                "owner": "system",
+                "stack": "react",
+                "description": "react-redux-thunk组件模板。(已添加redux-thunk支持)."
+            }
+        ]
     },
     "3": {
-        "name": "react-redux-thunk-template",
-        "label": "react-redux-thunk组件",
-        "owner": "system",
-        "stack": "react",
-        "description": "react-redux-thunk组件模板。(已添加redux-thunk、redux-promise支持)."
-    },
-    "4": {
         "name": "react-redux-template",
-        "label": "react-redux组件",
+        "label": "基础react-redux组件",
         "owner": "system",
         "stack": "react",
         "description": "react-redux组件模板。(无redux-thunk支持)."
     },
-    "5": {
+    "4": {
         "name": "react-redux-antd-mobile-template",
         "label": "react-redux-antd-mobile组件",
         "owner": "system",
         "stack": "react",
         "description": "react-redux ant-design mobile组件模板."
     },
-    "6": {
+    "5": {
         "name": "react-redux-template",
         "label": "SPA-UI组件",
         "owner": "system",
@@ -78,14 +94,14 @@
             }
         ]
     },
-    "7": {
+    "6": {
         "name": "vue-template",
         "label": "vue 2组件",
         "owner": "system",
         "stack": "vue",
         "description": "Vue组件模板。(纯Vue UI组件)"
     },
-    "8": {
+    "7": {
         "name": "jquery-template",
         "label": "jquery或原生组件",
         "owner": "system",
