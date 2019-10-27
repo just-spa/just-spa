@@ -28,6 +28,20 @@
                 "description": "react-redux-thunk组件模板。(已添加redux-thunk支持)."
             },
             {
+                "name": "react-redux-thunk-basic-hooks",
+                "label": "react-redux-thunk组件(经典型模板-函数组件)",
+                "owner": "system",
+                "stack": "react",
+                "description": "react-redux-thunk组件模板。(已添加redux-thunk支持)."
+            },
+            {
+                "name": "react-redux-thunk-basic-new-context",
+                "label": "react-redux-thunk组件(经典型模板-new Context API)",
+                "owner": "system",
+                "stack": "react",
+                "description": "react-redux-thunk组件模板。(已添加redux-thunk支持)."
+            },
+            {
                 "name": "react-redux-thunk-template",
                 "label": "react-redux-thunk组件(复用型模板)",
                 "owner": "system",
