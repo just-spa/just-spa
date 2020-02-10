@@ -1,0 +1,14 @@
+<view class="${_component}">
+    <view>
+        格式化组件名称： {{dataAdapter.formatName(name)}}
+    </view>
+    <view>
+        <label>组件类型</label>：{{type}}
+    </view>
+    <view>
+        <label>描述</label>：{{description}}
+    </view>
+    <view>
+        <button catchtap="click" type="primary">点击</button>
+    </view>
+</view>

@@ -1,0 +1,15 @@
+{
+    "statics": [
+    ],
+    "templates": [
+        "index.js",
+        "index.json",
+        "index.wxml",
+        "index.less"
+    ],
+    "templateData": {
+        "_Component": "name",
+        "_component": "lineThroughName"
+    },
+    "noPacakgeJson": "1"
+}

@@ -1,0 +1,3 @@
+<view class="${_component}-page">
+    <test-component></test-component>
+</view>

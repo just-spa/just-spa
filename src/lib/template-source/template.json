@@ -37,20 +37,57 @@
         ]
     },
     "3": {
+        "name": "mp-template",
+        "label": "小程序mini-program模板",
+        "owner": "system",
+        "stack": "mp",
+        "description": "项目mini-program小程序模板",
+        "options": [
+            {
+                "name": "wx-mp-flux",
+                "label": "小程序flux业务组件(业务推荐)",
+                "owner": "system",
+                "stack": "mp",
+                "description": "微信小程序Flux业务层组件规范(集成redux-thunk)."
+            },
+            {
+                "name": "wx-mp-page",
+                "label": "新建Page规范(集成Connect)",
+                "owner": "system",
+                "stack": "mp",
+                "description": "微信小程序Page级规范。"
+            },
+            {
+                "name": "wx-mp-template",
+                "label": "小程序业务UI组件(UI推荐)",
+                "owner": "system",
+                "stack": "mp",
+                "description": "微信小程序业务UI组件规范。(无redux)."
+            },
+            {
+                "name": "wx-mp-basic",
+                "label": "小程序基础UI组件(同原生模板)",
+                "owner": "system",
+                "stack": "mp",
+                "description": "微信小程序的原始组件规范。"
+            }
+        ]
+    },
+    "4": {
         "name": "react-redux-template",
         "label": "基础react-redux组件",
         "owner": "system",
         "stack": "react",
         "description": "react-redux组件模板。(无redux-thunk支持)."
     },
-    "4": {
+    "5": {
         "name": "react-redux-antd-mobile-template",
         "label": "react-redux-antd-mobile组件",
         "owner": "system",
         "stack": "react",
         "description": "react-redux ant-design mobile组件模板."
     },
-    "5": {
+    "6": {
         "name": "react-redux-template",
         "label": "SPA-UI组件",
         "owner": "system",
@@ -94,14 +131,14 @@
             }
         ]
     },
-    "6": {
+    "7": {
         "name": "vue-template",
         "label": "vue 2组件",
         "owner": "system",
         "stack": "vue",
         "description": "Vue组件模板。(纯Vue UI组件)"
     },
-    "7": {
+    "8": {
         "name": "jquery-template",
         "label": "jquery或原生组件",
         "owner": "system",

@@ -1,0 +1,6 @@
+{
+    "component": true,
+    "usingComponents": {
+        "${_component}-view": "./src/views/view"
+    }
+}

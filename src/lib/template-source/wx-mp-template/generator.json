@@ -1,0 +1,20 @@
+{
+    "statics": [
+        "test/test.js",
+        "index.js"
+    ],
+    "templates": [
+        "data/data.js",
+        "index.json",
+        "index.wxml",
+        "index.less",
+        "src/action.js",
+        "src/data-adapter.js",
+        "readme.md"
+    ],
+    "templateData": {
+        "_Component": "name",
+        "_component": "lineThroughName"
+    },
+    "noPacakgeJson": "1"
+}
