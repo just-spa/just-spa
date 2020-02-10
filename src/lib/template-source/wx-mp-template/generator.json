@@ -1,9 +1,9 @@
 {
     "statics": [
-        "test/test.js",
-        "index.js"
     ],
     "templates": [
+        "test/test.js",
+        "index.js",
         "data/data.js",
         "index.json",
         "index.wxml",

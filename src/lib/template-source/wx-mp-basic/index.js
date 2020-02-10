@@ -1,5 +1,3 @@
-import data from './data/data.js';
-
 Component({
     lifetimes: {
         attached() {
