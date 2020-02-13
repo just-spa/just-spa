@@ -1,8 +1,6 @@
-<wxs src="./src/data-adapter.wxs" module="dataAdapter"></wxs>
-
 <view class="${_component}">
     <view>
-        格式化组件名称： {{dataAdapter.formatName(name)}}
+        格式化组件名称： {{formatedName}}
     </view>
     <view>
         <label>组件类型</label>：{{type}}
@@ -15,7 +13,7 @@
         <button catchtap="asyncChangeName" type="default">异步操作</button>
     </view>
     <view>
-        <label>格式化属性名称</label>：{{dataAdapter.formatName(propName)}}
+        <label>格式化属性名称</label>：{{formatedPropName}}
     </view>
 
     <text>内部子UI组件：</text>

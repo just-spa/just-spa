@@ -2,7 +2,6 @@
     "usingComponents": {
         "test-component": "../../biz-components/test-component/index"
     },
-    "navigationBarTitleText": "",
-    "navigationBarBackgroundColor": "#F8F8F8",
-    "backgroundColor": "#F8F8F8"
+    "navigationBarTitleText": "标题",
+    "navigationBarBackgroundColor": "#F8F8F8"
 }
