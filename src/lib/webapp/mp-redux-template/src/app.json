@@ -1,0 +1,51 @@
+{
+    "pages": [
+        "pages/index-page/index",
+        "pages/manage-page/index",
+        "pages/message-page/index",
+        "pages/account-page/index"
+    ],
+    "window": {
+        "backgroundTextStyle": "dark",
+        "navigationBarBackgroundColor": "#000",
+        "navigationBarTitleText": "项目名称",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#fff"
+    },
+    "tabBar": {
+        "color": "#A3A3A3",
+        "selectedColor": "#00CC70",
+        "borderStyle": "black",
+        "backgroundColor": "#ffffff",
+        "list": [{
+                "pagePath": "pages/index-page/index",
+                "iconPath": "image/home.png",
+                "selectedIconPath": "image/home_selected.png",
+                "text": "首页"
+            },
+            {
+                "pagePath": "pages/manage-page/index",
+                "iconPath": "image/manage.png",
+                "selectedIconPath": "image/manage_selected.png",
+                "text": "管理"
+            },
+            {
+                "pagePath": "pages/message-page/index",
+                "iconPath": "image/msg.png",
+                "selectedIconPath": "image/msg_selected.png",
+                "text": "消息"
+            },
+            {
+                "pagePath": "pages/account-page/index",
+                "iconPath": "image/setting.png",
+                "selectedIconPath": "image/setting_selected.png",
+                "text": "我的"
+            }
+        ]
+    },
+    "permission": {
+
+    },
+    "style": "v2",
+    "navigateToMiniProgramAppIdList": []
+}

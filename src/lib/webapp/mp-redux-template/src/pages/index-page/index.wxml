@@ -1,0 +1,3 @@
+<view class="index-page-page">
+    <index-tab IndexTab="{{IndexTab}}"></index-tab>
+</view>

@@ -1,0 +1,6 @@
+{
+    "component": true,
+    "usingComponents": {
+        "account-tab-view": "./src/views/view"
+    }
+}

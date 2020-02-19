@@ -1,0 +1,3 @@
+<view class="index-tab-view">
+    <text class="text">子组件View的内容</text>
+</view>

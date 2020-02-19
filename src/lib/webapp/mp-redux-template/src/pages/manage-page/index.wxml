@@ -1,0 +1,3 @@
+<view class="manage-page-page">
+    <manage-tab ManageTab="{{ManageTab}}"></manage-tab>
+</view>

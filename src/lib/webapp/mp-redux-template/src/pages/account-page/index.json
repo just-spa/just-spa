@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "account-tab": "../../biz-components/account-tab/index"
+    },
+    "navigationBarTitleText": "账户",
+    "navigationBarBackgroundColor": "#F8F8F8"
+}

@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "manage-tab": "../../biz-components/manage-tab/index"
+    },
+    "navigationBarTitleText": "管理中心",
+    "navigationBarBackgroundColor": "#F8F8F8"
+}

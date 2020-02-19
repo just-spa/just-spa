@@ -1,0 +1,3 @@
+<view class="message-page-page">
+    <message-tab MessageTab="{{MessageTab}}"></message-tab>
+</view>

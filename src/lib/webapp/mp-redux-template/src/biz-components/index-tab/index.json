@@ -1,0 +1,6 @@
+{
+    "component": true,
+    "usingComponents": {
+        "index-tab-view": "./src/views/view"
+    }
+}

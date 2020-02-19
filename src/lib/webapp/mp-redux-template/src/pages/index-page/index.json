@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "index-tab": "../../biz-components/index-tab/index"
+    },
+    "navigationBarTitleText": "首页",
+    "navigationBarBackgroundColor": "#F8F8F8"
+}

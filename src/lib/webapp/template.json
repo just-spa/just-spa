@@ -40,5 +40,12 @@
         "owner": "system",
         "stack": "react",
         "description": "react复杂单页应用项目模板，使用SPAUI, 带redux。(推荐)"
+    },
+    "7": {
+        "name": "mp-redux-template",
+        "label": "mp-redux项目",
+        "owner": "system",
+        "stack": "mp",
+        "description": "微信小程序项目模板(集成redux-thunk)."
     }
 }

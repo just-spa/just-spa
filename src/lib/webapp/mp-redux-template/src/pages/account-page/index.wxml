@@ -1,0 +1,3 @@
+<view class="account-page-page">
+    <account-tab AccountTab="{{AccountTab}}"></account-tab>
+</view>

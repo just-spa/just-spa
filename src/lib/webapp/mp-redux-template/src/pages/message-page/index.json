@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "message-tab": "../../biz-components/message-tab/index"
+    },
+    "navigationBarTitleText": "消息",
+    "navigationBarBackgroundColor": "#F8F8F8"
+}

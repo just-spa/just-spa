@@ -1,0 +1,9 @@
+.DS_STORE
+*.log
+*.sw[op]
+
+node_modules
+.idea/
+dist
+package-lock.json
+coverage
