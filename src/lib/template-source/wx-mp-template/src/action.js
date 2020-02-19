@@ -1,8 +1,10 @@
+import { formatName } from './data-adapter';
 
 // 同步dispatch数据
 export const changeName = function (data = {}) {
     this.setData({
-        name: '同步数据'
+        name: '同步数据',
+        formatedName: formatName('同步数据')
     });
 }
 
@@ -21,11 +23,13 @@ export const asyncChangeName = function() {
         success (res) {
             self.setData({
                 name: res.data || '',
+                formatedName: formatName(res.data || '')
             });
         },
         fail (err) {
             self.setData({
                 name: err.code || 'request error',
+                formatedName: formatName(err.code || 'request error')
             });
         }
     })

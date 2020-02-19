@@ -1,10 +1,6 @@
 
-// 数据处理层使用wxs语法，同于nodejs的ES5 + cmd规范
+// 数据处理层
 
-function formatName (name) {
-    return '[' + name + ']';
+export const formatName = (name) => {
+    return `[${name}]`;
 }
-
-module.exports = {
-    formatName: formatName,
-};
