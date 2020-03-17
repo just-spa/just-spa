@@ -1,11 +1,9 @@
 
-import { useDispatch } from '../../initStore';
-import { changeName, asyncChangeName, } from './src/action';
+import { setData, } from '../../initStore';
 import { formatName } from './src/data-adapter';
 
 import data from './data/data.js';
-
-const dispatch = useDispatch();
+import methods from './src/methods';
 
 Component({
     properties: {
@@ -14,7 +12,7 @@ Component({
             value: '',
             observer: function (newValue, oldValue) {
                 const formatedPropName = formatName(newValue);
-                this.setData({
+                this.$setData({
                     formatedPropName,
                 });
             }
@@ -29,15 +27,14 @@ Component({
         formatedName: formatName(data.name),
     },
     methods: {
-        changeName() {
-            dispatch(changeName());
-        },
-        asyncChangeName() {
-            dispatch(asyncChangeName());
-        }
+        $setData: setData,
+        ...methods,
     },
 
     ready() {
         console.log('${_Component} ready');
+
+        this.initData();
+        this.bindEvents();
     }
 });
