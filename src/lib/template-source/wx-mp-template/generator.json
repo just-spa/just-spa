@@ -2,15 +2,13 @@
     "statics": [
     ],
     "templates": [
-        "test/test.js",
         "index.js",
         "data/data.js",
         "index.json",
         "index.wxml",
         "index.less",
         "src/action.js",
-        "src/data-adapter.js",
-        "readme.md"
+        "src/data-adapter.js"
     ],
     "templateData": {
         "_Component": "name",

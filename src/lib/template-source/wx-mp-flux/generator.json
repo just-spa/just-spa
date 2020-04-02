@@ -2,7 +2,6 @@
     "statics": [
     ],
     "templates": [
-        "test/test.js",
         "index.js",
         "data/data.js",
         "index.json",
@@ -15,8 +14,7 @@
         "src/views/view.js",
         "src/views/view.json",
         "src/views/view.wxml",
-        "src/views/view.less",
-        "readme.md"
+        "src/views/view.less"
     ],
     "templateData": {
         "_Component": "name",
