@@ -10,7 +10,7 @@
         "src/action.js",
         "src/data-adapter.js",
         "src/reducer.js",
-        "src/service.js",
+        "src/methods.js",
         "src/views/view.js",
         "src/views/view.json",
         "src/views/view.wxml",
