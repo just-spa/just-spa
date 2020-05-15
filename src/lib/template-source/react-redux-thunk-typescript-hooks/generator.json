@@ -1,15 +1,18 @@
 {
     "statics": [
-        "data/index.ts",
         "data/asyncData.json"
     ],
     "templates": [
         "README.md",
-        "src/events.ts",
-        "src/index.tsx",
+        "src/reducer.ts",
+        "src/action.ts",
         "src/data-adapter.ts",
+        "src/views/index.tsx",
         "index.tsx",
-        "src/index.less"
+        "src/index.tsx",
+        "data/index.ts",
+        "src/index.less",
+        "src/service.ts"
     ],
     "templateData": {
         "_Component": "name",
