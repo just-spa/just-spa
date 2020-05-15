@@ -14,5 +14,5 @@
         "_Component": "name",
         "_component": "lineThroughName"
     },
-    "noPacakgeJson": "1"
+    "noPacakgeJson": true
 }

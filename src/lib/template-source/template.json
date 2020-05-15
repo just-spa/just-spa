@@ -1,7 +1,7 @@
 {
     "1": {
-        "name": "react-template",
-        "label": "react组件",
+        "name": "react-typescript-hooks-template",
+        "label": "react + typescript + hooks基础组件",
         "owner": "system",
         "stack": "react",
         "description": "react组件模板。(纯react基础组件)"
@@ -74,20 +74,13 @@
         ]
     },
     "4": {
-        "name": "react-redux-template",
-        "label": "基础react-redux组件",
-        "owner": "system",
-        "stack": "react",
-        "description": "react-redux组件模板。(无redux-thunk支持)."
-    },
-    "5": {
         "name": "react-redux-antd-mobile-template",
         "label": "react-redux-antd-mobile组件",
         "owner": "system",
         "stack": "react",
         "description": "react-redux ant-design mobile组件模板."
     },
-    "6": {
+    "5": {
         "name": "vue-template",
         "label": "vue 2组件",
         "owner": "system",

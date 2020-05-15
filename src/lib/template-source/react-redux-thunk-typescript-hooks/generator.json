@@ -17,5 +17,6 @@
     "templateData": {
         "_Component": "name",
         "_component": "lineThroughName"
-    }
+    },
+    "noPacakgeJson": true
 }
