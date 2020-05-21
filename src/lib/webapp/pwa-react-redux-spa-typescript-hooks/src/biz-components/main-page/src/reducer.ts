@@ -1,6 +1,7 @@
 
+import { Action } from './index.d';
 
-const MainPage = (state: object = {}, action: any) => {
+const MainPage = (state: object = {}, action: Action) => {
     switch (action.type) {
         case 'MainPage':
             return Object.assign({}, state, action.data);
@@ -10,5 +11,5 @@ const MainPage = (state: object = {}, action: any) => {
 };
 
 export default {
-    MainPage
+    MainPage,
 };

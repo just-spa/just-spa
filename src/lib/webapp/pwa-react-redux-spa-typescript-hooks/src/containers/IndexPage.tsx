@@ -7,10 +7,21 @@ import TestPage from '../biz-components/test-page/index';
 import MainPage from '../biz-components/main-page/index';
 
 // 声明container中的路由
-const containerRoute: object = {
+// const containerRoute: object = {
+//     'test-page': TestPage,
+//     'main-page': MainPage
+// };
+
+interface RouterStruct {
+    [key: string]: Function,
+    'test-page': Function,
+    'main-page': Function,
+}
+
+const containerRoute: RouterStruct = {
     'test-page': TestPage,
     'main-page': MainPage
-};
+}
 
 const IndexPage = (props: {
     dispatch: Function,

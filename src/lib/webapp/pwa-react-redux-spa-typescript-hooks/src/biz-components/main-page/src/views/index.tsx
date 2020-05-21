@@ -1,20 +1,19 @@
 
 import React from 'react';
+import { IndexViewProps } from '../index.d';
 
-const Index = (props: {
-    title: string,
-    name: string,
-    text: string,
-    dispatchChange: any,
-    dispatchAsyncChange: any,
-}) => {
+const Index = (props: IndexViewProps) => {
     const { text, name, dispatchChange, dispatchAsyncChange, title } = props;
 
     return <div>
         <h2>react-redux模板组件：{title}</h2>
         {text} {name}!
-        <button onClick={dispatchChange}>同步dispatch</button>
-        <button onClick={dispatchAsyncChange}>异步dispatch</button>
+        <button onClick={() => {
+            dispatchChange();
+        }}>同步dispatch</button>
+        <button onClick={() => {
+            dispatchAsyncChange();
+        }}>异步dispatch</button>
     </div>
 }
 

@@ -8,7 +8,7 @@
 ```
 $ npm i  # 使用npm（不要使用tnpm）安装所需要的npm包， 如果部分包安装失败，则单独安装
 
-$ npm run dev # 启动开发调试，并访问 http://localhost:3000/www/index.html
+$ npm run dev # 启动开发调试，并访问 http://localhost:3002/www/index.html
 
 $ npm run release # 编译项目并打包生成tar.gz包
 
@@ -43,7 +43,3 @@ root/
 #### 四、开发完成后发布测试
 
 &emsp;&emsp;使用run run release打包完成后，生成的包在项目 /pkg目录下，打开下面织云发布地址（如果没权限请先发布权限）
-
-/\/www\/js\/(\S+?)\_\S+?\.js/  E:/BizRd-trunk-base/www-base-fe/root/dev/www/js/$1.js
-
-

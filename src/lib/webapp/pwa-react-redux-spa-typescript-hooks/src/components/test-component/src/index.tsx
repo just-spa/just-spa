@@ -2,10 +2,10 @@
 import React, { useEffect, useState, useCallback, useMemo } from 'react';
 import { addValue } from './events';
 import { formatName, formatText } from './data-adapter';
-import { ${_Component}Props } from './index.d';
+import { TestComponentProps } from './index.d';
 
-const ${_Component} = (props: ${_Component}Props) => {
-    const className = '${_component}';
+const TestComponent = (props: TestComponentProps) => {
+    const className = 'test-component';
 
     const { text: initText } = props;
 
@@ -29,7 +29,7 @@ const ${_Component} = (props: ${_Component}Props) => {
     }, []);
 
     return <div className={className}>
-        <h2>react-hooks模板组件：${_Component}</h2>
+        <h2>react-hooks模板组件：TestComponent</h2>
         <div>
             值: {value}
             <button onClick={addValueFn}>增加</button>
@@ -41,4 +41,4 @@ const ${_Component} = (props: ${_Component}Props) => {
     </div>
 }
 
-export default ${_Component};
+export default TestComponent;

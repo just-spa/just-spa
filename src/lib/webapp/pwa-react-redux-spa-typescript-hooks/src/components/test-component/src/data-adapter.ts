@@ -16,4 +16,4 @@ export const formatName = (name: string): string => {
  */
 export const formatText = (text: string): string => {
     return `[${text}]`;
-};
+}

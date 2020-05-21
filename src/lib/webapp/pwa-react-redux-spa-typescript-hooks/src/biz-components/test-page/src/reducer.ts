@@ -1,6 +1,6 @@
+import { Action } from './index.d';
 
-
-const TestPage = (state = {}, action) => {
+const TestPage = (state: object = {}, action: Action) => {
     switch (action.type) {
         case 'TestPage':
             return Object.assign({}, state, action.data);

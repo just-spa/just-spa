@@ -10,7 +10,7 @@ export default (url: string) => {
         return;
     }
     return new Promise((resolve, reject) => {
-        window.jsonCallBack = result => {
+        window.jsonCallBack = (result: object) => {
             resolve(result);
         };
         var JSONP = document.createElement('script');

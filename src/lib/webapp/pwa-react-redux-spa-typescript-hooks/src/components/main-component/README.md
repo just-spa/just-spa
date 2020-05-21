@@ -11,10 +11,10 @@ body {
 ```javascript
 
 import { connect } from 'react-redux';
-import ComponentPage from './index.jsx';
+import MainComponent from './index.jsx';
 
 //注入 mock请求返回数据
-Mock.mock(new RegExp('/.build/component-page/data/asyncData.json'), {
+Mock.mock(new RegExp('/.build/main-component/data/asyncData.json'), {
     "text": "hello first and hi Mock Data "
 });
 
@@ -33,7 +33,7 @@ const mapDispatchToProps = (state, ownProps) => {
 const Component = connect(
   mapStateToProps,
   mapDispatchToProps
-)(ComponentPage)
+)(MainComponent)
 
 export default <Component {...props}/>;
 

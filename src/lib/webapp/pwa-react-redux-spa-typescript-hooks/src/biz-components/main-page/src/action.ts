@@ -1,18 +1,21 @@
 
 import axios from 'axios';
+import { APIRespData } from './index.d';
 
 /**
  * 异步dispatch实例
  *
  * @param {string} actionType
  */
-const _dispatchAsyncChange = () => {
-    return new Promise((resolve, reject) => {
+const _dispatchAsyncChange = (): Promise<APIRespData> => {
+    return new Promise((resolve: Function, reject: Function) => {
         return axios({
             url: '/.build/main-page/data/asyncData.json',
             method: 'get',
             params: {}
-        }).then(resolve, (err) => {
+        }).then((res: object) => {
+            resolve(res);
+        }, (err: object) => {
             resolve({
                 code: -1,
                 err,
@@ -31,7 +34,7 @@ export const dispatchChange = (actionType: string, actionData?: object) => (disp
         type: actionType || 'change',
         data: actionData || {
             text: 'change',
-            name: 'ouven',
+            name: 'how are you',
         }
     });
 };
@@ -42,13 +45,13 @@ export const dispatchChange = (actionType: string, actionData?: object) => (disp
  * @param {string} actionType
  */
 export const dispatchAsyncChange = (actionType: string) => async (dispatch: Function) => {
-    const resData: any = await _dispatchAsyncChange();
+    const resData: APIRespData = await _dispatchAsyncChange();
     let actionData: object = {};
 
     if (resData.code == 0) {
         actionData = {
             text: resData.data.text,
-            name: 'ouven',
+            name: 'how are you',
         };
     } else {
         actionData = {

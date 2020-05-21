@@ -1,21 +1,28 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useCallback, } from 'react';
 
 import { dispatchChange, dispatchAsyncChange } from './action';
 import { formatName } from './data-adapter';
+import { MainPageProps } from './index.d';
 
-import ComponentPage from '../../components/component-page/index';
+import MainComponent from '../../../components/main-component/index';
 import View from './views/index';
 
-const MainPage = (props: {
-    MainPage: any,
-    dispatch: Function,
-}) => {
+const MainPage = (props: MainPageProps) => {
     const className = 'main-page';
     const { dispatch, MainPage } = props;
     const { name, text } = MainPage;
 
-    const formatNameData: string = formatName(name);
+    // 当name变化时，formatName才调用
+    const formatNameData: string = useMemo(() => formatName(name), [name]);
+
+    const dispatchFn = useCallback(() => {
+        dispatch(dispatchChange('MainPage'));
+    }, [event]);
+
+    const dispatchAsyncFn = useCallback(() => {
+        dispatch(dispatchAsyncChange('MainPage'));
+    }, [event]);
 
     useEffect(() => {
         dispatch(dispatchChange('MainPage'));
@@ -24,13 +31,9 @@ const MainPage = (props: {
     return <div className={className}>
         <h2>react-redux模板组件：MainPage</h2>
         {MainPage['text'] || text} {formatNameData}!
-        <button onClick={() => {
-            dispatch(dispatchChange('MainPage'));
-        }}>同步dispatch</button>
-        <button onClick={() => {
-            dispatch(dispatchAsyncChange('MainPage'));
-        }}>异步dispatch</button>
-        <ComponentPage dispatch={dispatch} name={name} text={text}/>
+        <button onClick={dispatchFn}>同步dispatch</button>
+        <button onClick={dispatchAsyncFn}>异步dispatch</button>
+        <MainComponent text="MainPage"/>
         <View name={name}
             text={text}
             title="MainPage"

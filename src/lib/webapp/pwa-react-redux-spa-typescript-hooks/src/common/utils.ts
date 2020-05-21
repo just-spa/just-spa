@@ -1,4 +1,6 @@
-
+interface itemObject {
+    [k: string]: string,
+}
 /**
  * 从localStorage中获取对象
  *
@@ -21,13 +23,13 @@ export const getItemFromLocalStorage = (key: string) => {
  * @param {any} object 存储的值
  * @memberof Preview
  */
-export const setItemToLocalStorage = (key: string, object: any) => {
+export const setItemToLocalStorage = (key: string, object: object) => {
     if (typeof object === 'object') {
         try {
             let string = JSON.stringify(object);
             localStorage.setItem(key, string);
         } catch (e) {
-            localStorage.setItem(key, object);
+            localStorage.setItem(key, JSON.stringify(object));
         }
     } else {
         localStorage.setItem(key, object);
@@ -54,7 +56,7 @@ export const removeItemFromLocalStorage = (key: string) => {
  * @param {any} componentInfo
  * @returns
  */
-export const getUrlParams = (name) => {
+export const getUrlParams = (name: string): string => {
     var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
     var r = window.location.search.substr(1).match(reg);
     if (r != null) return unescape(r[2]);
@@ -66,7 +68,7 @@ Number.prototype.toFixed = function (n: number) {
     if (n > 20 || n < 0) {
         throw new RangeError('toFixed() digits argument must be between 0 and 20');
     }
-    const numberValue: any = this;
+    const numberValue: number = <number>this;
     if (isNaN(numberValue) || numberValue >= Math.pow(10, 21)) {
         return numberValue.toString();
     }
@@ -75,6 +77,7 @@ Number.prototype.toFixed = function (n: number) {
     }
 
     let result = numberValue.toString();
+    let resultNumber;
     const arr = result.split('.');
 
     // 整数的情况
@@ -103,15 +106,15 @@ Number.prototype.toFixed = function (n: number) {
     // 四舍五入，转换为整数再处理，避免浮点数精度的损失
     if (parseInt(last, 10) >= 5) {
         const x = Math.pow(10, n);
-        result = (Math.round((parseFloat(result) * x)) + 1) / x;
-        result = result.toFixed(n);
+        resultNumber = (Math.round((parseFloat(result) * x)) + 1) / x;
+        resultNumber = resultNumber.toFixed(n);
     }
 
     return result;
 };
 
 // 格式化大数字格式为千位逗号的展示方式
-export const formatBigNumber = (number) => {
+export const formatBigNumber = (number: number) => {
     if ((number / 100000000) > 1) {
         return (number / 100000000).toFixed(1) + '亿';
     }
@@ -126,9 +129,9 @@ export const formatBigNumber = (number) => {
 * @param {Number} timestamp 要转换的时间参数（单位为秒）
 * @returns {String}
 */
-export const getRelativeTime = (timestamp) => {
+export const getRelativeTime = (timestamp: number): string => {
     let currentUnixTime = Math.round((new Date()).getTime() / 1000);       // 当前时间的秒数
-    let deltaSecond = currentUnixTime - parseInt(timestamp, 10);            // 当前时间与要转换的时间差（ s ）
+    let deltaSecond = currentUnixTime - timestamp;            // 当前时间与要转换的时间差（ s ）
     let result;
 
     if (deltaSecond < 60) {
@@ -148,7 +151,10 @@ export const getRelativeTime = (timestamp) => {
  * 
  * @param {any} callback 
  */
-export const onScrollLoading = function(callback, page: any) {
+export const onScrollLoading = function(callback: Function, page: {
+    offset: number,
+    limit: number,
+}) {
     let canLoading = true;
 
     // 滚动加载

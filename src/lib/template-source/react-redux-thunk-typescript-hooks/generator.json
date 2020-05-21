@@ -7,12 +7,12 @@
         "src/reducer.ts",
         "src/action.ts",
         "src/data-adapter.ts",
-        "src/views/index.tsx",
-        "index.tsx",
+        "src/index.d.ts",
         "src/index.tsx",
-        "data/index.ts",
         "src/index.less",
-        "src/service.ts"
+        "src/views/index.tsx",
+        "data/index.ts",
+        "index.tsx"
     ],
     "templateData": {
         "_Component": "name",

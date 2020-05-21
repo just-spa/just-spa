@@ -1,11 +1,12 @@
 {
     "statics": [
-        "data/index.ts",
         "data/asyncData.json"
     ],
     "templates": [
+        "data/index.ts",
         "README.md",
         "src/events.ts",
+        "src/index.d.ts",
         "src/index.tsx",
         "src/data-adapter.ts",
         "index.tsx",

@@ -39,7 +39,20 @@
 import axios from 'axios';
 import { setItemToLocalStorage, getItemFromLocalStorage } from './utils';
 
-let apiMap = {};
+interface apiMap {
+    [k: string]: Object,
+};
+
+interface Params {
+    params: {
+        [k: string]: string,
+    },
+    method: 'get' | 'post' | 'put',
+    url: string,
+    cache?: boolean,
+}
+
+let apiMap: apiMap = {};
 
 let loadingHtml = `<div class="loading-mask">
     <div class="loading-container">
@@ -47,7 +60,7 @@ let loadingHtml = `<div class="loading-mask">
         <div class="text">加载中</div>
     </div>
 </div>`,
-    loadingEl: any = null;
+    loadingEl: HTMLDivElement;
 
 /**
  * @param {any} params 同axios的params
@@ -59,7 +72,7 @@ let loadingHtml = `<div class="loading-mask">
  *  @param {any} withNoLoading 是否隐藏loading效果
  * @returns promise
  */
-const bizAxios = (params, withNoLoading) => {
+const bizAxios = (params: Params, withNoLoading: boolean) => {
     let paramsString = (Object.keys(params.params || {}).map((key) => {
         return `${key}=${params.params[key]}`
     })).join('&'),                              // 拼接参数
@@ -83,7 +96,9 @@ const bizAxios = (params, withNoLoading) => {
         // 使用web axios发送请求
         let requestPromise = axios(params);
 
-        requestPromise.then(function (res) {
+        requestPromise.then(function (res: {
+            data: object,
+        }) {
             if (!withNoLoading) {
                 hideLoading();
             }
@@ -93,7 +108,7 @@ const bizAxios = (params, withNoLoading) => {
                 setItemToLocalStorage(wholeUrl, { data: res.data });
             }
             resolve({ data: res.data });
-        }, function (err) {
+        }, function (err: object) {
             if (!withNoLoading) {
                 hideLoading();
             }
@@ -123,7 +138,7 @@ const bizAxios = (params, withNoLoading) => {
  *
  * @param {any} errorObj 错误对象
  */
-function apiErrorReport(errorObj) {
+function apiErrorReport(errorObj: object) {
     // const Tryjs = window.Tryjs;
     // if (Tryjs) {
     //     Tryjs.report(errorObj);
@@ -147,7 +162,7 @@ function showLoading() {
 function hideLoading() {
     if (loadingEl) {
         document.body.removeChild(loadingEl);
-        loadingEl = null;
+        // loadingEl = ;
     }
 }
 

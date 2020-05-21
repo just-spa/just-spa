@@ -11,7 +11,6 @@ var cacheList = [
     '/www/libs/react.react-dom.min.js',
     '/www/libs/moment.min.js',
     '/www/libs/axios.min.js',
-    '/www/js/common.js',
     '/www/js/index.js'
 ];
 
