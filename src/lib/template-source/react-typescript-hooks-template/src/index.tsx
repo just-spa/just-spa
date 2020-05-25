@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useCallback, useMemo } from 'react';
 import { addValue } from './events';
 import { formatName, formatText } from './data-adapter';
-import { ${_Component}Props } from './index.d';
+import { ${_Component}Props } from './typings';
 
 const ${_Component} = (props: ${_Component}Props) => {
     const className = '${_component}';

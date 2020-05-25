@@ -3,7 +3,7 @@ import React, { useEffect, useMemo, useCallback, } from 'react';
 
 import { dispatchChange, dispatchAsyncChange } from './action';
 import { formatName } from './data-adapter';
-import { ${_Component}Props } from './index.d';
+import { ${_Component}Props } from './typings';
 
 import MainComponent from '../../../components/main-component/index';
 import View from './views/index';

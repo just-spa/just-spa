@@ -6,7 +6,7 @@
         "data/index.ts",
         "README.md",
         "src/events.ts",
-        "src/index.d.ts",
+        "src/typings.ts",
         "src/index.tsx",
         "src/data-adapter.ts",
         "index.tsx",

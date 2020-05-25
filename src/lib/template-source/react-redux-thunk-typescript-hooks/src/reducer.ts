@@ -1,5 +1,5 @@
 
-import { Action } from './index.d';
+import { Action } from './typings';
 
 const ${_Component} = (state: object = {}, action: Action) => {
     switch (action.type) {

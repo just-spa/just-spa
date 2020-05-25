@@ -1,6 +1,6 @@
 
 import axios from 'axios';
-import { APIRespData } from './index.d';
+import { APIRespData } from './typings';
 
 /**
  * 异步dispatch实例
