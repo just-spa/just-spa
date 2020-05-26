@@ -1,5 +1,5 @@
 
-import { Action } from './index.d';
+import { Action } from './typings';
 
 const MainPage = (state: object = {}, action: Action) => {
     switch (action.type) {

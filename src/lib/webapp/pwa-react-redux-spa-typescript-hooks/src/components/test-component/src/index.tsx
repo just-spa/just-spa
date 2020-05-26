@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useCallback, useMemo } from 'react';
 import { addValue } from './events';
 import { formatName, formatText } from './data-adapter';
-import { TestComponentProps } from './index.d';
+import { TestComponentProps } from './typings';
 
 const TestComponent = (props: TestComponentProps) => {
     const className = 'test-component';

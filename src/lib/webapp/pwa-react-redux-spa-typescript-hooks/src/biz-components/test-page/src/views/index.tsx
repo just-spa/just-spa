@@ -1,6 +1,6 @@
 
 import React, { useCallback } from 'react';
-import { IndexViewProps } from '../index.d';
+import { IndexViewProps } from '../typings';
 
 const Index = (props: IndexViewProps) => {
     const { text, name, dispatchChange, dispatchAsyncChange, title } = props;

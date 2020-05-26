@@ -3,7 +3,7 @@ import React, { useEffect, useMemo, useCallback } from 'react';
 
 import { dispatchChange, dispatchAsyncChange } from './action';
 import { formatName } from './data-adapter';
-import { TestPageProps } from './index.d';
+import { TestPageProps } from './typings';
 
 import TestComponent from '../../../components/test-component/index';
 import View from './views/index';

@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useCallback, useMemo } from 'react';
 import { addValue } from './events';
 import { formatName, formatText } from './data-adapter';
-import { MainComponentProps } from './index.d';
+import { MainComponentProps } from './typings';
 
 const MainComponent = (props: MainComponentProps) => {
     const className = 'main-component';

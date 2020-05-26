@@ -7,7 +7,7 @@
         "src/reducer.ts",
         "src/action.ts",
         "src/data-adapter.ts",
-        "src/typings.ts",
+        "src/typings.d.ts",
         "src/index.tsx",
         "src/index.less",
         "src/views/index.tsx",
